@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   ul {
     list-style: none;
   }

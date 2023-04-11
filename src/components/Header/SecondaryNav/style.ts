@@ -6,6 +6,19 @@ export const SecondaryNavWrapper = styled.div`
   gap: 15px;
 `;
 
+export const AccountMenuBlock = styled.div`
+  position: relative;
+
+  .arrow-down {
+    position: absolute;
+    top: 34px;
+    right: 10px;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+`;
+
 export const DropdownBtn = styled.button`
   &:hover {
     svg {
@@ -14,7 +27,6 @@ export const DropdownBtn = styled.button`
   }
 
   svg {
-    enable-background: new 0 0 512 512;
     transition: transform 367ms cubic-bezier(0.21, 0, 0.07, 1);
   }
 `;
