@@ -7,6 +7,7 @@ function App() {
     <AppContainer>
       <Header />
       <Invite />
+      <h2>test</h2>
     </AppContainer>
   );
 }
