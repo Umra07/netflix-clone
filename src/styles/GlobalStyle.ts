@@ -8,8 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     color: #fff;
   }
-
-  h1 {
+  h1, h2 {
     margin: 0;
   }
 

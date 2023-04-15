@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Invite from './components/Invite';
-import MoviesList from './components/MoviesList';
+import MoviesListBlock from './components/MoviesListBlock';
 import { AppContainer } from './styles/AppContainer.styled';
 
 function App() {
@@ -8,7 +8,15 @@ function App() {
     <AppContainer>
       <Header />
       <Invite />
-      <MoviesList />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
+      <MoviesListBlock />
     </AppContainer>
   );
 }

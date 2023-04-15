@@ -3,6 +3,7 @@ import { InviteSection } from './style';
 import axios from 'axios';
 import useResize from '../../hooks/useResize';
 import Content from './Content';
+import getPosterUrl from '../../getPosterUrl';
 
 const API_KEY = import.meta.env.VITE_API_URL;
 
@@ -38,15 +39,11 @@ const Invite: FC = () => {
     }
   }, []);
 
-  const getPosterUrl = () => {
-    return `https://image.tmdb.org/t/p/original${inviteMovie.background}`;
-  };
-
   const { width, height } = useResize(divEl);
 
   return (
-    <InviteSection ref={divEl} width={width} imgUrl={getPosterUrl()}>
-      <img src={getPosterUrl()} alt={inviteMovie.background} />
+    <InviteSection ref={divEl} width={width}>
+      <img src={getPosterUrl('original', inviteMovie.background)} alt={inviteMovie.background} />
       <Content title={inviteMovie.title} description={inviteMovie.description} />
     </InviteSection>
   );

@@ -10,7 +10,7 @@ export const InviteSection = styled.div<InviteSectionProps>`
   /* background: no-repeat center url(${(props) => props.imgUrl}); */
 
   img {
-    width: ${(props) => props.width};
+    width: 100%;
     z-index: 1;
   }
 `;
