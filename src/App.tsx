@@ -1,3 +1,4 @@
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Invite from './components/Invite';
 import MoviesListBlock from './components/MoviesListBlock';
@@ -17,6 +18,7 @@ function App() {
       <MoviesListBlock />
       <MoviesListBlock />
       <MoviesListBlock />
+      <Footer />
     </AppContainer>
   );
 }
