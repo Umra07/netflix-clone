@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Invite from './components/Invite';
+import MoviesList from './components/MoviesList';
 import { AppContainer } from './styles/AppContainer.styled';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <AppContainer>
       <Header />
       <Invite />
-      <h2>test</h2>
+      <MoviesList />
     </AppContainer>
   );
 }

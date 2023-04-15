@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     color: #fff;
   }
 
+  h1 {
+    margin: 0;
+  }
+
   button {
     background-color: transparent;
     border: none;
