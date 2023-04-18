@@ -7,12 +7,20 @@ interface BtnBlockProps {
 }
 
 export const ContentWrapper = styled.div`
-  top: 35vh;
-  left: 4%;
-  width: 40vw;
-  position: absolute;
-  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 5vw;
 
+  iframe {
+    border-radius: 15px;
+  }
+`;
+
+export const LeftBlock = styled.div`
+  max-width: 30vw;
+  z-index: 2;
   h1 {
     margin-bottom: 20px;
     font-size: 40px;
@@ -53,6 +61,7 @@ export const BtnBlock = styled.div<BtnBlockProps>`
   gap: 15px;
   background-color: ${(props) => props.background};
   cursor: pointer;
+  transition: background-color 0.15s ease;
 
   b {
     color: ${(props) => props.color};

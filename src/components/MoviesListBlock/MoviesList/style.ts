@@ -28,6 +28,7 @@ export const ListWrapper = styled.ul`
   display: flex;
   gap: 5px;
   overflow-x: scroll;
+  overflow-inline: scroll;
   position: relative;
 
   &::-webkit-scrollbar {

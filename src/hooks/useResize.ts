@@ -5,10 +5,12 @@ const useResize = (myRef: any): { width: string; height: string } => {
 
   useEffect(() => {
     if (myRef.current && myRef.current.clientWidth) {
-      setSize({ ...size, width: `${myRef.current.clientWidth}px` });
+      setSize({
+        height: `${myRef.current.clientHeight}px`,
+        width: `${myRef.current.clientWidth}px`,
+      });
     }
   }, [myRef]);
-
   return size;
 };
 

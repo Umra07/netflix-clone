@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   button {
     background-color: transparent;
     border: none;

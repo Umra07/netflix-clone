@@ -17,7 +17,7 @@ const MoviesList: FC<MoviesListProps> = ({ list }) => {
       </LeftButton>
       <ListWrapper>
         {list.map((item) => (
-          <MovieItem key={item.id} poster_path={item.poster_path} />
+          <MovieItem key={item.id} poster_path={item.poster_path} title={item.title} />
         ))}
       </ListWrapper>
       <RightButton>

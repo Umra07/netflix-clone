@@ -6,7 +6,7 @@ import getPosterUrl from '../../../../getPosterUrl';
 const MovieItem: FC<MovieTypes> = ({ poster_path }) => {
   return (
     <MovieItemCard>
-      <img src={poster_path && getPosterUrl('w200', poster_path)} alt="" />
+      <img src={poster_path && getPosterUrl('w300', poster_path)} alt="" />
     </MovieItemCard>
   );
 };
