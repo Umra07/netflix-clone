@@ -8,6 +8,7 @@ export const MoviesListContainer = styled.div`
     height: 100%;
     top: 0;
     z-index: 2;
+    animation: btnOpacity 0.6s ease;
 
     img {
       width: 3vw;
@@ -21,23 +22,29 @@ export const MoviesListContainer = styled.div`
         width: 5vw;
       }
     }
+
+    @keyframes btnOpacity {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 `;
 
 export const ListWrapper = styled.ul`
   display: flex;
   gap: 5px;
-  overflow-x: scroll;
-  overflow-inline: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
   position: relative;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  padding-inline: 4%;
 `;
 
 export const LeftButton = styled.button`
-  left: 0;
+  left: 4%;
 
   img {
     transform: rotate(180deg);

@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const AppContainer = styled.div`
+interface AppContainerProps {
+  width?: number;
+}
+
+export const AppContainer = styled.div<AppContainerProps>`
   display: flex;
   flex-direction: column;
   background-color: #141414;
   position: absolute;
-  width: 100vw;
+  max-width: 100vw;
 `;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Block } from './style';
+import { SliderWrapper } from './style';
 import axios from 'axios';
 import MoviesList from './MoviesList';
 
@@ -30,16 +30,19 @@ export interface MovieTypes {
 }
 
 const MoviesListBlock = () => {
-  const [list, setList] = useState<MovieTypes[]>([]);
+  const [list, setList] = useState([]);
+
+  const [btnIsShown, setBtnIsShown] = useState<boolean>(false);
 
   useEffect(() => {
     try {
       (async function fetchMovies() {
-        const { data } = await axios.get<ResultTypes>(
+        const { data } = await axios.get(
           `
-          https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+          https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`,
         );
 
+        console.log(data);
         setList(data.results);
       })();
     } catch (err) {
@@ -47,10 +50,10 @@ const MoviesListBlock = () => {
     }
   }, []);
   return (
-    <Block>
+    <SliderWrapper onMouseOver={() => setBtnIsShown(true)} onMouseOut={() => setBtnIsShown(false)}>
       <h2>Last Uploads</h2>
-      <MoviesList list={list} />
-    </Block>
+      {/* <MoviesList genre={genre} list={list} btnIsShown={btnIsShown} /> */}
+    </SliderWrapper>
   );
 };
 
