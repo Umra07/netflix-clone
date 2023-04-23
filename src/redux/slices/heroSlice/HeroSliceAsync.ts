@@ -8,7 +8,6 @@ export const fetchInviteMovie = createAsyncThunk('fetchInviteMovie', async () =>
   const { data } = await axios.get<MovieTypes>(
     `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}&append_to_response=videos`,
   );
-  console.log(data);
 
   const loadedMovie = {
     title: data.title,
@@ -16,8 +15,6 @@ export const fetchInviteMovie = createAsyncThunk('fetchInviteMovie', async () =>
     poster: data.backdrop_path,
     videoKey: data && data.videos && data.videos.results ? data.videos.results[1].key : '',
   };
-
-  console.log(loadedMovie);
 
   return loadedMovie;
 });

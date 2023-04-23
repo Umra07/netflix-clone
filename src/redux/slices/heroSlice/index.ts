@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialStateTypes } from './types';
-import { fetchInviteMovie } from './heroSliceAsync';
+import { fetchInviteMovie } from './HeroSliceAsync';
 const initialState: initialStateTypes = {
   movie: {},
 };

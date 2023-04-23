@@ -1,19 +1,18 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { BackgroundGradient, InviteSection } from './style';
-import axios from 'axios';
-import useResize from '../../hooks/useResize';
 import Content from './Content';
 import getPosterUrl from '../../getPosterUrl';
-import YouTube from 'react-youtube';
-import YTPlayer from '../UI/YTPlayer';
 import { RootState, useAppDispatch } from '../../redux/store';
 import { fetchInviteMovie } from '../../redux/slices/heroSlice/HeroSliceAsync';
+import { useSelector } from 'react-redux';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Invite: FC = () => {
   const dispatch = useAppDispatch();
-  const inviteMovie = (state: RootState) => state.hero;
+  const inviteMovie = useSelector((state: RootState) => state.hero.movie);
+
+  console.log(inviteMovie);
 
   useEffect(() => {
     dispatch(fetchInviteMovie());
@@ -24,9 +23,9 @@ const Invite: FC = () => {
       {/* <img src={} alt="background image" /> */}
       <BackgroundGradient />
       <Content
-        videoUrl={inviteMovie.movie?.videoKey}
-        title={inviteMovie.movie?.title}
-        description={inviteMovie.movie?.descr}
+        videoUrl={inviteMovie.videoKey}
+        title={inviteMovie.title}
+        description={inviteMovie.descr}
       />
     </InviteSection>
   );
