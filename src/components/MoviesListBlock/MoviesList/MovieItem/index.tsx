@@ -1,12 +1,20 @@
 import { FC } from 'react';
 import { MovieItemCard } from './style';
-import { MovieTypes } from '../..';
 import getPosterUrl from '../../../../getPosterUrl';
+import { MovieTypes } from '../../../../redux/slices/mainPage/types';
 
-const MovieItem: FC<MovieTypes> = ({ poster_path }) => {
+import emptyPoster from '../../../../assets/poster-holder.jpg';
+
+const MovieItem: FC<MovieTypes> = ({ poster_path, title }) => {
   return (
     <MovieItemCard>
-      <img src={poster_path && getPosterUrl('w300', poster_path)} alt="" />
+      {poster_path ? (
+        <img src={poster_path && getPosterUrl('w300', poster_path)} alt="" />
+      ) : (
+        <>
+          <img src={emptyPoster} alt="Poster not available" />
+        </>
+      )}
     </MovieItemCard>
   );
 };

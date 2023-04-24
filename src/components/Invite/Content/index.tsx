@@ -54,7 +54,7 @@ const Content: FC<ContentProps> = ({ videoUrl, title, description }) => {
           </BtnBlock>
         </div>
       </LeftBlock>
-      <YTPlayer videoKey={videoUrl} opts={opts} />
+      {videoUrl && <YTPlayer videoKey={videoUrl} opts={opts} />}
     </ContentWrapper>
   );
 };

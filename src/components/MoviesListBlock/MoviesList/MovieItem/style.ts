@@ -5,7 +5,10 @@ export const MovieItemCard = styled.li`
   position: relative;
 
   img {
-    width: calc(100vw / 7);
+    cursor: pointer;
+    width: calc(100vw / 8);
+    height: inherit;
+    aspect-ratio: 11/17;
     object-fit: cover;
     border-radius: 5px;
   }

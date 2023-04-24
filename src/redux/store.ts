@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import heroReducer from './slices/heroSlice';
+import mainPageReducer from './slices/mainPage';
 
 export const store = configureStore({
   reducer: {
-    hero: heroReducer,
+    main: mainPageReducer,
   },
 });
 

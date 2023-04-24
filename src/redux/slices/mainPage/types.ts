@@ -1,13 +1,7 @@
-interface InviteMovieTypes {
-  title?: string;
-  descr?: string;
-  videoKey?: string;
-  poster?: string;
-  [key: string]: any; // mi sie nie podoba index signature, poczytac assertion
-}
-
 export interface initialStateTypes {
-  movie: InviteMovieTypes;
+  inviteMovie: MovieTypes;
+  genres: GenreTypes[];
+  movies: MoviesListByGenresTypes[];
 }
 
 export interface VideoTypes {
@@ -39,7 +33,16 @@ export interface MovieTypes {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
-  videos?: {
-    results?: VideoTypes[];
-  };
+  videos?: VideoTypes[];
+}
+
+export interface GenreTypes {
+  id: number;
+  name: string;
+}
+
+export interface MoviesListByGenresTypes {
+  genre: number;
+  name: string;
+  moviesList: MovieTypes[];
 }

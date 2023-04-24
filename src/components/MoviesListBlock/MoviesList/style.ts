@@ -9,6 +9,7 @@ export const MoviesListContainer = styled.div`
     top: 0;
     z-index: 2;
     animation: btnOpacity 0.6s ease;
+    background-color: rgba(0, 0, 0, 0.4);
 
     img {
       width: 3vw;
@@ -16,7 +17,7 @@ export const MoviesListContainer = styled.div`
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.8);
 
       img {
         width: 5vw;
@@ -40,17 +41,14 @@ export const ListWrapper = styled.ul`
   overflow-x: hidden;
   scroll-behavior: smooth;
   position: relative;
-  padding-inline: 4%;
 `;
 
 export const LeftButton = styled.button`
-  left: 4%;
-
   img {
     transform: rotate(180deg);
   }
 `;
 
 export const RightButton = styled.button`
-  right: 1.2vw;
+  right: 0;
 `;
