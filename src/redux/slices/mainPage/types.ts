@@ -2,6 +2,11 @@ export interface initialStateTypes {
   inviteMovie: MovieTypes;
   genres: GenreTypes[];
   movies: MoviesListByGenresTypes[];
+  credits: any;
+  modal: {
+    isOpened: boolean;
+    movie: MovieTypes;
+  };
 }
 
 export interface VideoTypes {
@@ -28,12 +33,14 @@ export interface MovieTypes {
   overview?: string;
   popularity?: number;
   poster_path?: string;
+  runtime?: number;
   release_date?: string;
   title?: string;
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
   trailer?: VideoTypes;
+  onClick?: () => void;
 }
 
 export interface GenreTypes {

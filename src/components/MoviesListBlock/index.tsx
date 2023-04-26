@@ -5,12 +5,15 @@ import { RootState, useAppDispatch } from '../../redux/store';
 import { fetchMoviesByGenres, fetchMoviesGenres } from '../../redux/slices/mainPage/mainPageAsync';
 import { GenreTypes } from '../../redux/slices/mainPage/types';
 import MoviesList from './MoviesList';
+import Modal from './../UI/Modal';
+import { createPortal } from 'react-dom';
 
 const getRandomGenres = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 const MoviesListBlock = () => {
+  const modalIsOpened = useSelector((state: RootState) => state.main.modal.isOpened);
   const dispatch = useAppDispatch();
   const genres = useSelector((state: RootState) => state.main.genres);
   const moviesList = useSelector((state: RootState) => state.main.movies);
@@ -54,6 +57,7 @@ const MoviesListBlock = () => {
         }>
         click
       </button>
+      {modalIsOpened && createPortal(<Modal />, document.body)}
     </SliderWrapper>
   );
 };

@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  html {
+  body {
     overflow-x: hidden;
   }
 

@@ -32,7 +32,6 @@ export const fetchInviteRandomMovie = createAsyncThunk(
       }
 
       randomMovie = { ...moviesList[randomIndex], trailer };
-      console.log(randomMovie);
       return randomMovie;
     } catch (err: any) {
       console.log(err.message);
@@ -67,3 +66,11 @@ export const fetchMoviesByGenres = createAsyncThunk(
     return moviesListByGenre;
   },
 );
+
+export const fetchMovieCredits = createAsyncThunk('fetchMovieCredits', async (id: number) => {
+  const cast = await axios
+    .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`)
+    .then((res) => res.data.cast[0]);
+
+  return cast;
+});
