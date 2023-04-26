@@ -20,7 +20,11 @@ const Invite: FC = () => {
     <InviteSection imgUrl={getPosterUrl('original', inviteMovie.poster_path || "Img didn't found")}>
       {/* <img src={} alt="background image" /> */}
       <BackgroundGradient />
-      <Content title={inviteMovie.original_title} description={inviteMovie.overview} />
+      <Content
+        trailerUrl={inviteMovie.trailer && inviteMovie.trailer.key}
+        title={inviteMovie.original_title}
+        description={inviteMovie.overview}
+      />
     </InviteSection>
   );
 };

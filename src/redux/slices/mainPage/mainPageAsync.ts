@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { GenreTypes, MovieTypes, MoviesListByGenresTypes } from './types';
+import { GenreTypes, MovieTypes, MoviesListByGenresTypes, VideoTypes } from './types';
 import { API_KEY } from '../../../constants';
 
 export const fetchInviteRandomMovie = createAsyncThunk(
@@ -19,17 +19,19 @@ export const fetchInviteRandomMovie = createAsyncThunk(
 
       let randomMovie: MovieTypes = moviesList[randomIndex];
 
-      console.log(rejectWithValue);
-
-      const videos = await axios
+      const videos: VideoTypes[] = await axios
         .get(`https://api.themoviedb.org/3/movie/${randomMovie.id}/videos?api_key=${API_KEY}`)
         .then((response) => response.data.results);
-      // if (!videos.ok) {
-      //   throw new Error("Can't load videos from the server :(");
-      // }
 
-      randomMovie = { ...moviesList[randomIndex], videos: [...videos] };
+      let trailer: VideoTypes = {};
 
+      for (let i = 0; i < videos.length; i++) {
+        if ((videos[i].name = 'Official Trailer')) {
+          trailer = videos[i];
+        }
+      }
+
+      randomMovie = { ...moviesList[randomIndex], trailer };
       console.log(randomMovie);
       return randomMovie;
     } catch (err: any) {

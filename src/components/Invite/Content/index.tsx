@@ -3,12 +3,12 @@ import { BtnBlock, ContentWrapper, LeftBlock } from './style';
 import YTPlayer from '../../UI/YTPlayer';
 
 interface ContentProps {
-  videoUrl?: string;
+  trailerUrl?: string;
   title?: string;
   description?: string;
 }
 
-const Content: FC<ContentProps> = ({ videoUrl, title, description }) => {
+const Content: FC<ContentProps> = ({ trailerUrl, title, description }) => {
   const opts = {
     width: '600px',
     height: '337.50px',
@@ -54,7 +54,7 @@ const Content: FC<ContentProps> = ({ videoUrl, title, description }) => {
           </BtnBlock>
         </div>
       </LeftBlock>
-      {videoUrl && <YTPlayer videoKey={videoUrl} opts={opts} />}
+      {trailerUrl && <YTPlayer videoKey={trailerUrl} opts={opts} />}
     </ContentWrapper>
   );
 };

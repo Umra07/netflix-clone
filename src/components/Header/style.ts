@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 
-export const HeaderWrapper = styled.header`
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
-  position: fixed;
+interface HeaderWrapperTypes {
+  isFixed: boolean;
+}
+
+export const HeaderWrapper = styled.header<HeaderWrapperTypes>`
+  background: ${(props) =>
+    props.isFixed
+      ? 'rgba(20,20,20, 1)'
+      : 'linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent)'};
+  opacity: rgba(20, 20, 20, 0);
+  position: ${(props) => (props.isFixed ? 'fixed' : 'absolute')};
   padding-inline: 4%;
   height: 68px;
   width: calc(100vw - 8%);
@@ -10,4 +18,17 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   z-index: 5;
+
+  animation: ${(props) => (props.isFixed ? 'fixedMenu .5s ease-in-out' : 'none')};
+
+  @keyframes fixedMenu {
+    from {
+      top: -10px;
+      background-color: rgba(20, 20, 20, 0);
+    }
+    to {
+      top: 0;
+      background-color: rgba(20, 20, 20, 1);
+    }
+  }
 `;

@@ -33,7 +33,7 @@ export interface MovieTypes {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
-  videos?: VideoTypes[];
+  trailer?: VideoTypes;
 }
 
 export interface GenreTypes {
