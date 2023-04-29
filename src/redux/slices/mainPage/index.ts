@@ -3,14 +3,26 @@ import { MovieTypes, initialStateTypes } from './types';
 import {
   fetchInviteRandomMovie,
   fetchMovieCredits,
+  fetchMovieKeywords,
   fetchMoviesByGenres,
   fetchMoviesGenres,
+  fetchSimilarMovies,
 } from './mainPageAsync';
+
 const initialState: initialStateTypes = {
   inviteMovie: {},
   genres: [],
   movies: [],
-  credits: [],
+  credits: {
+    cast: [],
+    directors: [],
+    writers: [],
+  },
+  keywords: [],
+  similarMovies: {
+    page: 1,
+    movies: [],
+  },
   modal: {
     isOpened: false,
     movie: {},
@@ -55,10 +67,30 @@ const mainPageSlice = createSlice({
       })
 
       .addCase(fetchMovieCredits.fulfilled, (state, action) => {
-        state.credits = [...state.credits, action.payload];
+        state.credits = action.payload;
       })
       .addCase(fetchMovieCredits.rejected, (state) => {
-        state.credits = [];
+        state.credits = {
+          cast: [],
+          directors: [],
+          writers: [],
+        };
+      })
+      .addCase(fetchMovieKeywords.fulfilled, (state, action) => {
+        state.keywords = [...action.payload];
+      })
+      .addCase(fetchMovieKeywords.rejected, (state) => {
+        state.keywords = [];
+      })
+      .addCase(fetchSimilarMovies.fulfilled, (state, action) => {
+        state.similarMovies = {
+          ...state.similarMovies,
+          page: action.payload.page,
+          movies: [...action.payload.movies],
+        };
+      })
+      .addCase(fetchSimilarMovies.rejected, (state) => {
+        state.keywords = [];
       });
   },
 });

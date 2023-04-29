@@ -29,8 +29,6 @@ const MoviesList: FC<MoviesListProps> = ({ movies }) => {
     dispatch(handleModal({ isOpened: !modal.isOpened, movie: movie }));
   };
 
-  console.log(modal);
-
   return (
     <MoviesListContainer>
       {

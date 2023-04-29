@@ -1,6 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { GenreTypes, MovieTypes, MoviesListByGenresTypes, VideoTypes } from './types';
+import {
+  FetchMovieCreditsTypes,
+  FetchSimilarMovieResponseTypes,
+  GenreTypes,
+  MovieTypes,
+  MoviesListByGenresTypes,
+  VideoTypes,
+  fetchMovieKeywordsTypes,
+} from './types';
 import { API_KEY } from '../../../constants';
 
 export const fetchInviteRandomMovie = createAsyncThunk(
@@ -46,7 +54,6 @@ export const fetchMoviesGenres = createAsyncThunk('fetchMoviesGenres', async () 
   } = await axios.get<{ genres: GenreTypes[] }>(
     `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`,
   );
-
   return genres;
 });
 
@@ -68,9 +75,38 @@ export const fetchMoviesByGenres = createAsyncThunk(
 );
 
 export const fetchMovieCredits = createAsyncThunk('fetchMovieCredits', async (id: number) => {
-  const cast = await axios
-    .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`)
-    .then((res) => res.data.cast[0]);
+  const data = await axios
+    .get<FetchMovieCreditsTypes>(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`,
+    )
+    .then((res) => res.data);
 
-  return cast;
+  const directors = data.crew.filter((person) => person.job === 'Director');
+  const writers = data.crew.filter((person) => person.job === 'Writer');
+
+  return { cast: data.cast, directors, writers };
 });
+
+export const fetchMovieKeywords = createAsyncThunk('fetchMovieKeywords', async (id: number) => {
+  const keywords = await axios
+    .get<fetchMovieKeywordsTypes>(
+      `
+  https://api.themoviedb.org/3/movie/${id}/keywords?api_key=${API_KEY}`,
+    )
+    .then((res) => res.data.keywords);
+
+  return keywords;
+});
+
+export const fetchSimilarMovies = createAsyncThunk(
+  'fetchSimilarMovies',
+  async ({ id, page }: { id: number; page: number }) => {
+    const similarMovies = await axios
+      .get<FetchSimilarMovieResponseTypes>(
+        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${API_KEY}&language=en-US&page=${page}`,
+      )
+      .then((res) => res.data.results);
+
+    return { page, movies: similarMovies };
+  },
+);
