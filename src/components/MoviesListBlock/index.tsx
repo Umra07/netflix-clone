@@ -18,7 +18,7 @@ const MoviesListBlock = () => {
   const genres = useSelector((state: RootState) => state.main.genres);
   const moviesList = useSelector((state: RootState) => state.main.movies);
 
-  const [page, setPage] = useState<{ firstList: number; lastList: number }>({
+  const [moreGenres, setMoreGenres] = useState<{ firstList: number; lastList: number }>({
     firstList: 0,
     lastList: 2,
   });
@@ -27,21 +27,44 @@ const MoviesListBlock = () => {
 
   useEffect(() => {
     if (effectRan.current === false) {
-      for (let i = page.firstList; i < page.lastList; i++) {
+      for (let i = moreGenres.firstList; i < moreGenres.lastList; i++) {
         dispatch(fetchMoviesByGenres(genres[i]));
       }
 
-      if (page.firstList === 0) {
+      if (moreGenres.firstList === 0) {
         return () => {
           effectRan.current = true;
         };
       }
     }
     effectRan.current = false;
-  }, [genres, page, effectRan.current]);
+  }, [genres, moreGenres, effectRan.current]);
+
+  const listsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (
+        listsRef.current &&
+        listsRef.current.offsetTop + listsRef.current.offsetHeight <=
+          window.innerHeight + window.scrollY
+      ) {
+        console.log('working');
+        setMoreGenres({
+          firstList:
+            moreGenres.firstList + 2 < genres.length ? moreGenres.firstList + 2 : genres.length,
+          lastList:
+            moreGenres.lastList + 2 < genres.length ? moreGenres.lastList + 2 : genres.length,
+        });
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [listsRef]);
 
   return (
-    <SliderWrapper>
+    <SliderWrapper ref={listsRef}>
       {moviesList.map((list) => (
         <ul key={list.genre}>
           <h2>{list.name}</h2>
@@ -50,9 +73,11 @@ const MoviesListBlock = () => {
       ))}
       <button
         onClick={() =>
-          setPage({
-            firstList: page.firstList + 2 < genres.length ? page.firstList + 2 : genres.length,
-            lastList: page.lastList + 2 < genres.length ? page.lastList + 2 : genres.length,
+          setMoreGenres({
+            firstList:
+              moreGenres.firstList + 2 < genres.length ? moreGenres.firstList + 2 : genres.length,
+            lastList:
+              moreGenres.lastList + 2 < genres.length ? moreGenres.lastList + 2 : genres.length,
           })
         }>
         click

@@ -19,10 +19,7 @@ const initialState: initialStateTypes = {
     writers: [],
   },
   keywords: [],
-  similarMovies: {
-    page: 1,
-    movies: [],
-  },
+  similarMovies: [],
   modal: {
     isOpened: false,
     movie: {},
@@ -38,6 +35,7 @@ const mainPageSlice = createSlice({
         isOpened: action.payload.isOpened,
         movie: action.payload.movie,
       };
+      state.similarMovies = [];
     },
   },
   extraReducers: (builder) => {
@@ -83,11 +81,7 @@ const mainPageSlice = createSlice({
         state.keywords = [];
       })
       .addCase(fetchSimilarMovies.fulfilled, (state, action) => {
-        state.similarMovies = {
-          ...state.similarMovies,
-          page: action.payload.page,
-          movies: [...action.payload.movies],
-        };
+        state.similarMovies = [...state.similarMovies, ...action.payload];
       })
       .addCase(fetchSimilarMovies.rejected, (state) => {
         state.keywords = [];

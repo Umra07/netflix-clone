@@ -31,11 +31,10 @@ const MoviesList: FC<MoviesListProps> = ({ movies }) => {
 
   return (
     <MoviesListContainer>
-      {
-        <LeftButton onClick={() => slide(-1000)}>
-          <img src={arrowSvg} alt="left arrow" />
-        </LeftButton>
-      }
+      <LeftButton onClick={() => slide(-1000)}>
+        <img src={arrowSvg} alt="left arrow" />
+      </LeftButton>
+
       <ListWrapper ref={listRef}>
         {movies.map((movie) => (
           <MovieItem

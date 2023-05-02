@@ -7,7 +7,7 @@ export const MoviesListContainer = styled.div`
     position: absolute;
     height: 100%;
     top: 0;
-    z-index: 2;
+    z-index: 5;
     animation: btnOpacity 0.6s ease;
     background-color: rgba(0, 0, 0, 0.4);
 
@@ -44,6 +44,7 @@ export const ListWrapper = styled.ul`
 `;
 
 export const LeftButton = styled.button`
+  left: 0;
   img {
     transform: rotate(180deg);
   }

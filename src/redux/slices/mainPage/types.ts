@@ -2,16 +2,13 @@ export interface initialStateTypes {
   inviteMovie: MovieTypes;
   genres: GenreTypes[];
   movies: MoviesListByGenresTypes[];
-  similarMovies: {
-    page: number;
-    movies: MovieTypes[];
-  };
+  similarMovies: MovieTypes[];
   credits: {
     cast: CrewmateTypes[];
     directors: CrewmateTypes[];
     writers: CrewmateTypes[];
   };
-  keywords: any;
+  keywords: KeywordTypes[];
   modal: {
     isOpened: boolean;
     movie: MovieTypes;

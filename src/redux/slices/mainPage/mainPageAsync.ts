@@ -107,6 +107,6 @@ export const fetchSimilarMovies = createAsyncThunk(
       )
       .then((res) => res.data.results);
 
-    return { page, movies: similarMovies };
+    return similarMovies;
   },
 );

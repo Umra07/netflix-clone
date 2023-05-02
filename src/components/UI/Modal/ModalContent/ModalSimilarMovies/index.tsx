@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { BottomBackdrop, BottomButton, SimilarMoviesWrapper } from './style';
 import { fetchSimilarMovies } from '../../../../../redux/slices/mainPage/mainPageAsync';
 import { useSelector } from 'react-redux';
@@ -12,24 +12,33 @@ interface ModalSimilarMoviesProps {
 const ModalSimilarMovies: FC<ModalSimilarMoviesProps> = ({ id }) => {
   const similarMovies = useSelector((state: RootState) => state.main.similarMovies);
   const dispatch = useAppDispatch();
+  const [page, setPage] = useState(1);
+
+  const effectRan = useRef(false);
 
   useEffect(() => {
-    dispatch(fetchSimilarMovies({ id, page: similarMovies.page }));
+    if (effectRan.current === false) {
+      dispatch(fetchSimilarMovies({ id, page }));
+      setPage((prev) => prev + 1);
+    }
+
+    return () => {
+      effectRan.current = true;
+    };
   }, []);
 
   const handleClick = () => {
-    dispatch(fetchSimilarMovies({ id, page: similarMovies.page + 1 }));
+    dispatch(fetchSimilarMovies({ id, page }));
   };
 
   return (
     <SimilarMoviesWrapper>
       <h3>More like this</h3>
       <ul>
-        {similarMovies.movies.map((item) => (
-          <li id="similar-movie">
+        {similarMovies.map((movie) => (
+          <li key={movie.id}>
             <img
-              key={item.id}
-              src={getPosterUrl('w300', item.poster_path || './src/assets/poster-holder.jpg')}
+              src={getPosterUrl('w300', movie.poster_path || './src/assets/poster-holder.jpg')}
             />
           </li>
         ))}

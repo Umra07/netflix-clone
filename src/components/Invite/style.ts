@@ -9,7 +9,8 @@ export const InviteSection = styled.div<InviteSectionProps>`
   background-image: url(${(props) => props.imgUrl});
   background-position: center;
   background-size: cover;
-  width: 100vw;
+  background-repeat: no-repeat;
+  width: 100%;
   position: relative;
 
   height: 110vh;
