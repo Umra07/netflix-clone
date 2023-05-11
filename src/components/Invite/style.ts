@@ -10,7 +10,7 @@ export const InviteSection = styled.div<InviteSectionProps>`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100vw;
   position: relative;
 
   height: 110vh;

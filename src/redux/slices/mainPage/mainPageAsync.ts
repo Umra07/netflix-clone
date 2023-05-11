@@ -54,7 +54,16 @@ export const fetchMoviesGenres = createAsyncThunk('fetchMoviesGenres', async () 
   } = await axios.get<{ genres: GenreTypes[] }>(
     `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`,
   );
-  return genres;
+
+  const selectedGenres = genres.filter(
+    (genre) =>
+      genre.name === 'Action' ||
+      genre.name === 'Drama' ||
+      genre.name === 'Family' ||
+      genre.name === 'Horror',
+  );
+
+  return selectedGenres;
 });
 
 export const fetchMoviesByGenres = createAsyncThunk(
@@ -100,7 +109,7 @@ export const fetchMovieKeywords = createAsyncThunk('fetchMovieKeywords', async (
 
 export const fetchSimilarMovies = createAsyncThunk(
   'fetchSimilarMovies',
-  async ({ id, page }: { id: number; page: number }) => {
+  async ({ id, page }: { id: number | undefined; page: number }) => {
     const similarMovies = await axios
       .get<FetchSimilarMovieResponseTypes>(
         `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${API_KEY}&language=en-US&page=${page}`,

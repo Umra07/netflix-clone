@@ -17,8 +17,7 @@ function App() {
   return (
     <AppContainer id="root">
       <Header />
-      <Invite />
-      <MoviesListBlock />
+
       <Footer />
     </AppContainer>
   );

@@ -16,8 +16,11 @@ const Invite: FC = () => {
     dispatch(fetchInviteRandomMovie());
   }, []);
 
+  console.log(inviteMovie.poster_path);
+
   return (
-    <InviteSection imgUrl={getPosterUrl('original', inviteMovie.poster_path || "Img didn't found")}>
+    <InviteSection
+      imgUrl={getPosterUrl('original', inviteMovie.backdrop_path || "Img didn't found")}>
       {/* <img src={} alt="background image" /> */}
       <BackgroundGradient />
       <Content

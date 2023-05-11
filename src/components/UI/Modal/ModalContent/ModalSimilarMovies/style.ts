@@ -23,13 +23,29 @@ export const SimilarMoviesWrapper = styled.div`
   }
 
   li {
+    position: relative;
+    cursor: pointer;
+    line-height: 0;
+
+    p {
+      display: grid;
+      place-items: center;
+      color: #000;
+      transform: translateY(-30px);
+    }
   }
 
   img {
     background-image: element('similar-movie');
     max-width: 100%;
     object-fit: cover;
-    aspect-ratio: 11/17;
+    border-radius: 10px;
+
+    transition: all 0.15s ease-in-out;
+    &:hover {
+      border-radius: 0;
+      transform: scale(0.95);
+    }
   }
 `;
 

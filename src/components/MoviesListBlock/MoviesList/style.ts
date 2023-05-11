@@ -2,12 +2,19 @@ import styled from 'styled-components';
 
 export const MoviesListContainer = styled.div`
   position: relative;
+  display: block;
+  height: 100%;
+
+  li {
+    padding: 0;
+    margin: 0;
+  }
 
   button {
     position: absolute;
-    height: 100%;
+    height: inherit;
     top: 0;
-    z-index: 5;
+    z-index: 4;
     animation: btnOpacity 0.6s ease;
     background-color: rgba(0, 0, 0, 0.4);
 

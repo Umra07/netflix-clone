@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.header<HeaderWrapperTypes>`
   position: ${(props) => (props.isFixed ? 'fixed' : 'absolute')};
   padding-inline: 4%;
   height: 68px;
-  width: calc(100vw - 8%);
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;

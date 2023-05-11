@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
    * {
+    box-sizing: border-box;
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 400;
     margin: 0;

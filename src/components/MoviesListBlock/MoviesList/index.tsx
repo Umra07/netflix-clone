@@ -22,11 +22,10 @@ const MoviesList: FC<MoviesListProps> = ({ movies }) => {
     }
   };
 
-  const modal = useSelector((state: RootState) => state.main.modal);
   const dispatch = useAppDispatch();
 
   const handleMovieClick = (movie: MovieTypes) => {
-    dispatch(handleModal({ isOpened: !modal.isOpened, movie: movie }));
+    dispatch(handleModal({ isOpened: true, movie: movie }));
   };
 
   return (
