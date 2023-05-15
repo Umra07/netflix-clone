@@ -6,14 +6,9 @@ interface InviteSectionProps {
 }
 
 export const InviteSection = styled.div<InviteSectionProps>`
-  background-image: url(${(props) => props.imgUrl});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  position: relative;
-
-  height: 110vh;
+  /* background-image: url(${(props) => props.imgUrl}); */
+  z-index: 1;
+  padding-inline: 4%;
 
   /* img {
     position: absolute;
@@ -23,15 +18,15 @@ export const InviteSection = styled.div<InviteSectionProps>`
   } */
 `;
 
-export const BackgroundGradient = styled.div`
-  position: absolute;
-  width: inherit;
-  height: inherit;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(20, 20, 20, 1) 0%,
-    rgba(20, 20, 20, 0.6) 25%,
-    rgba(255, 255, 255, 0) 100%
-  );
-`;
+// export const BackgroundGradient = styled.div`
+//   position: absolute;
+//   width: inherit;
+//   height: inherit;
+//   background: rgb(0, 0, 0);
+//   background: linear-gradient(
+//     0deg,
+//     rgba(20, 20, 20, 1) 0%,
+//     rgba(20, 20, 20, 0.6) 25%,
+//     rgba(255, 255, 255, 0) 100%
+//   );
+// `;

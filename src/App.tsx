@@ -6,6 +6,11 @@ import MoviesListBlock from './components/MoviesListBlock';
 import { AppContainer } from './styles/AppContainer.styled';
 import { useAppDispatch } from './redux/store';
 import { fetchMoviesGenres } from './redux/slices/mainPage/mainPageAsync';
+import CustomBackground from './components/UI/CustomBackground';
+
+import backgroundImg from './assets/main-bg.jpg';
+import FeatureList from './components/FeaturesList';
+import QuestionsList from './components/QuestionsList';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -15,11 +20,16 @@ function App() {
   }, []);
 
   return (
-    <AppContainer id="root">
+    <>
       <Header />
-
-      <Footer />
-    </AppContainer>
+      <AppContainer id="root">
+        <CustomBackground url={backgroundImg} />
+        <Invite />
+        <FeatureList />
+        <QuestionsList />
+        <Footer />
+      </AppContainer>
+    </>
   );
 }
 

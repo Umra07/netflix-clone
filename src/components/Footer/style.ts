@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 export const FooterWrapper = styled.footer`
   margin: 80px auto 40px;
-  max-width: 980px;
+  z-index: 1;
 
   ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
   }
 

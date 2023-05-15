@@ -5,12 +5,14 @@ interface HeaderWrapperTypes {
 }
 
 export const HeaderWrapper = styled.header<HeaderWrapperTypes>`
-  background: ${(props) =>
+  /* background: ${(props) =>
     props.isFixed
       ? 'rgba(20,20,20, 1)'
-      : 'linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent)'};
+      : 'linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent)'}; */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
   opacity: rgba(20, 20, 20, 0);
-  position: ${(props) => (props.isFixed ? 'fixed' : 'absolute')};
+  position: absolute;
+  /* position: ${(props) => (props.isFixed ? 'fixed' : 'absolute')}; */
   padding-inline: 4%;
   height: 68px;
   width: 100vw;

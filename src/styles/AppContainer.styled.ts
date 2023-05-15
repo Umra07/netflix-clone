@@ -7,7 +7,6 @@ interface AppContainerProps {
 export const AppContainer = styled.div<AppContainerProps>`
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: #141414;
-  position: absolute;
-  max-width: 100vw;
 `;
