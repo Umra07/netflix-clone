@@ -1,4 +1,10 @@
-export const questionsData = [
+export interface QuestionsDataTypes {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export const questionsData: QuestionsDataTypes[] = [
   {
     id: 0,
     question: 'What is Netflix?',

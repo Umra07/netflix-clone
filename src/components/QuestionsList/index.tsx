@@ -4,7 +4,11 @@ import { questionsData } from './data';
 import { QuestionsListWrapper } from './style';
 
 const QuestionsList = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | 'closed'>('closed');
+
+  const showAnswer = (id: number) => {
+    activeIndex === id ? setActiveIndex('closed') : setActiveIndex(id);
+  };
 
   return (
     <QuestionsListWrapper>
@@ -12,7 +16,7 @@ const QuestionsList = () => {
         <QuestionCard
           key={item.id}
           isActive={activeIndex === item.id}
-          onShow={() => setActiveIndex(item.id)}
+          onShow={() => showAnswer(item.id)}
           question={item.question}
           answer={item.answer}
         />
