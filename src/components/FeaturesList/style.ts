@@ -7,4 +7,5 @@ export const FeaturesListWrapper = styled.ul`
   padding-inline: 4%;
   margin-top: -120px;
   z-index: 2;
+  margin-bottom: 100px;
 `;

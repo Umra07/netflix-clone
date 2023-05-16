@@ -5,4 +5,5 @@ export const QuestionsListWrapper = styled.ul`
   flex-direction: column;
   gap: 8px;
   padding-inline: 4%;
+  max-width: 90vw;
 `;
