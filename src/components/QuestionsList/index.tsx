@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import QuestionCard from '../UI/QuestionCard';
+import QuestionCard from './QuestionCard';
 import { questionsData } from './data';
 import { QuestionsListWrapper } from './style';
 
