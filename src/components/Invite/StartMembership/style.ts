@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const StartMembershipWrapper = styled.div`
   z-index: 2;
   padding: 200px 0 420px 24px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
 
   h1 {
     font-size: 4rem;
@@ -18,19 +18,12 @@ export const StartMembershipWrapper = styled.div`
     font-weight: 600;
   }
 
-  h3 {
-    line-height: 1.875rem;
-    font-size: 2rem;
-    font-weight: 400;
-    padding-top: 16px;
-  }
-
   div {
     padding-top: 16px;
-  }
-`;
 
-export const CustomInputBlock = styled.div`
-  display: flex;
-  gap: 10px;
+    div {
+      display: flex;
+      justify-content: center;
+    }
+  }
 `;

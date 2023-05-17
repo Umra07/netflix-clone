@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const FeatureCardItem = styled.li`
   background: linear-gradient(153.61deg, #e40913 -192.17%, #170f48 80.89%);
   padding: 34px 24px 70px;
-  width: 330px;
   border-radius: 5px;
   display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
   flex-direction: column;
 
   h2 {

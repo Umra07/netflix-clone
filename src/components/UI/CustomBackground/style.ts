@@ -22,12 +22,11 @@ export const CustomBackgroundImage = styled.div<CustomBackgroundImage>`
   .backdrop {
     height: inherit;
     width: 100vw;
-    background: rgb(0, 0, 0);
     background: linear-gradient(
       0deg,
       rgba(20, 20, 20, 1) 0%,
-      rgba(20, 20, 20, 0.6) 25%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(20, 20, 20, 0.6) 45%,
+      rgba(0, 0, 0, 0.6) 100%
     );
     z-index: 2;
   }

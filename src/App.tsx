@@ -11,6 +11,7 @@ import CustomBackground from './components/UI/CustomBackground';
 import backgroundImg from './assets/main-bg.jpg';
 import FeatureList from './components/FeaturesList';
 import QuestionsList from './components/QuestionsList';
+import CustomInputBlock from './components/UI/CustomInputBlock';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -22,11 +23,12 @@ function App() {
   return (
     <>
       <Header />
-      <AppContainer id="root">
+      <AppContainer>
         <CustomBackground url={backgroundImg} />
         <Invite />
         <FeatureList />
         <QuestionsList />
+        <CustomInputBlock margin={'4%'} />
         <Footer />
       </AppContainer>
     </>

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface QuestionCardItemProps {
   isActive: boolean;
+  answerHeight: number | null;
 }
 
 interface QuestionHeadingProps {
@@ -10,14 +11,20 @@ interface QuestionHeadingProps {
 
 export const QuestionCardItem = styled.li<QuestionCardItemProps>`
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .answer {
+    transition: all 0.25s ease-in-out;
+    max-height: ${(props) => (props.isActive ? '200px' : '0')};
+    overflow: hidden;
+  }
 
   p {
+    overflow: hidden;
     font-size: 20px;
     line-height: 1.2;
-    transition: grid-template-rows 0.25s ease-in-out;
-    display: grid;
-    grid-template-rows: ${(props) => (props.isActive ? '1fr' : '0fr')};
-    overflow: hidden;
     padding: 1.5rem 2rem;
     background-color: rgb(19, 33, 68);
   }
@@ -26,7 +33,6 @@ export const QuestionCardItem = styled.li<QuestionCardItemProps>`
 export const QuestionHeading = styled.div<QuestionHeadingProps>`
   background-color: rgb(19, 33, 68);
   padding: 1.5rem 2rem;
-  margin-bottom: ${(props) => (props.isActive ? '2px' : '0')};
   display: flex;
   justify-content: space-between;
   align-items: center;

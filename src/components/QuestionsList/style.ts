@@ -6,4 +6,5 @@ export const QuestionsListWrapper = styled.ul`
   gap: 8px;
   padding-inline: 4%;
   max-width: 90vw;
+  margin-bottom: 30px;
 `;

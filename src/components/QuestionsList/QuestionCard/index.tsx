@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useRef } from 'react';
 import { QuestionCardItem, QuestionHeading } from './style';
 
 interface QuestionCardProps {
@@ -9,8 +9,17 @@ interface QuestionCardProps {
 }
 
 const QuestionCard: FC<QuestionCardProps> = ({ isActive, onShow, question, answer }) => {
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
+
   return (
-    <QuestionCardItem isActive={isActive} onClick={onShow}>
+    <QuestionCardItem
+      isActive={isActive}
+      onClick={onShow}
+      answerHeight={
+        paragraphRef.current &&
+        paragraphRef.current.clientHeight &&
+        paragraphRef.current.clientHeight
+      }>
       <QuestionHeading isActive={isActive}>
         <h2>{question}</h2>
         <svg
@@ -27,7 +36,9 @@ const QuestionCard: FC<QuestionCardProps> = ({ isActive, onShow, question, answe
             fill="currentColor"></path>
         </svg>
       </QuestionHeading>
-      {isActive && <p>{answer}</p>}
+      <div className="answer">
+        <p ref={paragraphRef}>{answer}</p>
+      </div>
     </QuestionCardItem>
   );
 };
