@@ -34,3 +34,8 @@ export const HeaderWrapper = styled.header<HeaderWrapperTypes>`
     }
   }
 `;
+
+export const NavigationWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;

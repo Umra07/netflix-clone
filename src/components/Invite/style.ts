@@ -9,6 +9,8 @@ export const InviteSection = styled.div<InviteSectionProps>`
   /* background-image: url(${(props) => props.imgUrl}); */
   z-index: 1;
   padding-inline: 4%;
+  display: grid;
+  place-items: center;
 
   /* img {
     position: absolute;

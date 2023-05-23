@@ -6,7 +6,6 @@ const menu = ['Home', 'TV Shows', 'Movies', 'New & Popular', 'My List', 'Browse 
 const NavList = () => {
   return (
     <NavWrapper>
-      <CustomLogo />
       <ListWrapper>
         {menu.map((item, index) => (
           <li key={index}>

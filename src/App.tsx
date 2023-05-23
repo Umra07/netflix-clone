@@ -12,6 +12,7 @@ import backgroundImg from './assets/main-bg.jpg';
 import FeatureList from './components/FeaturesList';
 import QuestionsList from './components/QuestionsList';
 import CustomInputBlock from './components/UI/CustomInputBlock';
+import RouterApp from './components/routes/RouterApp';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -24,12 +25,7 @@ function App() {
     <>
       <Header />
       <AppContainer>
-        <CustomBackground url={backgroundImg} />
-        <Invite />
-        <FeatureList />
-        <QuestionsList />
-        <CustomInputBlock margin={'4%'} />
-        <Footer />
+        <RouterApp />
       </AppContainer>
     </>
   );
