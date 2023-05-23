@@ -4,18 +4,16 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
 import { fetchMoviesByGenres } from '../../redux/slices/mainPage/mainPageAsync';
 import MoviesList from './MoviesList';
-import Modal from './../UI/Modal';
+import Modal from './../UI/ModalMovie';
 import { createPortal } from 'react-dom';
-
-const getRandomGenres = (min: number, max: number): number => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
 
 const MoviesListBlock = () => {
   const modalIsOpened = useSelector((state: RootState) => state.main.modal.isOpened);
   const dispatch = useAppDispatch();
   const genres = useSelector((state: RootState) => state.main.genres);
   const moviesList = useSelector((state: RootState) => state.main.movies);
+
+  console.log(genres);
 
   const effectRan = useRef(false);
 

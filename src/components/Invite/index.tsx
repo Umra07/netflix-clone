@@ -8,34 +8,25 @@ import { useSelector } from 'react-redux';
 
 import backgroundImg from '../../assets/main-bg.jpg';
 import StartMembership from './StartMembership';
+import { MovieTypes } from '../../redux/slices/mainPage/types';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-const Invite: FC = () => {
-  const dispatch = useAppDispatch();
-  const inviteMovie = useSelector((state: RootState) => state.main.inviteMovie);
+interface InviteProps {
+  inviteMovie?: MovieTypes;
+}
 
-  const loggedIn = false;
-
-  useEffect(() => {
-    dispatch(fetchInviteRandomMovie());
-  }, []);
-
-  console.log(inviteMovie.poster_path);
+const Invite: FC<InviteProps> = ({ inviteMovie }) => {
+  const loggedIn = true;
 
   return (
-    <InviteSection
-      imgUrl={
-        loggedIn
-          ? getPosterUrl('original', inviteMovie.backdrop_path || "Img didn't found")
-          : backgroundImg
-      }>
+    <InviteSection>
       {/* <img src={} alt="background image" /> */}
       {loggedIn ? (
         <Content
-          trailerUrl={inviteMovie.trailer && inviteMovie.trailer.key}
-          title={inviteMovie.original_title}
-          description={inviteMovie.overview}
+          trailerUrl={inviteMovie?.trailer && inviteMovie.trailer.key}
+          title={inviteMovie?.original_title}
+          description={inviteMovie?.overview}
         />
       ) : (
         <StartMembership />

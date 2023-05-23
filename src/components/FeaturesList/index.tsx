@@ -2,7 +2,7 @@ import FeatureCard from '../UI/FeatureCard';
 import { featuresData } from './data';
 import { FeaturesListWrapper } from './style';
 
-const FeatureList = () => {
+const FeaturesList = () => {
   return (
     <FeaturesListWrapper>
       {featuresData.map((feature) => (
@@ -12,4 +12,4 @@ const FeatureList = () => {
   );
 };
 
-export default FeatureList;
+export default FeaturesList;

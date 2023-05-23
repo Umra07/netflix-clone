@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../redux/store';
 import { handleModal } from '../../../redux/slices/mainPage';
 import getPosterUrl from '../../../getPosterUrl';
-import ModalContent from './ModalContent';
+import ModalContent from './ModalMovieContent';
 
 const Modal = () => {
   const modal = useSelector((state: RootState) => state.main.modal);

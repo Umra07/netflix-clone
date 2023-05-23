@@ -9,7 +9,7 @@ import {
   fetchMovieKeywords,
 } from '../../../../redux/slices/mainPage/mainPageAsync';
 import ModalSimilarMovies from './ModalSimilarMovies';
-import ModalFooter from './ModalFooter';
+import ModalFooter from './ModalMovieFooter';
 import CustomList from '../../CustomList';
 
 interface ModalContentProps {

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { CustomButtonWrapper } from './style';
 
 interface CustomButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   children: string;
 }
 
